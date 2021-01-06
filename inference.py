@@ -48,14 +48,15 @@ def test(opt, cv_img):
         inf_out, _ = model(img, augment=False)
         # Run NMS
         output = non_max_suppression(inf_out, conf_thres=opt.conf_thres, iou_thres=opt.iou_thres, merge=opt.merge)
-        print(output)
+        # print(output)
+        return output
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='inference.py')
     parser.add_argument('--weights', nargs='+', type=str, default='yolov4.pt', help='model.pt path(s)')
     # parser.add_argument('--data', type=str, default='data/coco128.yaml', help='*.data path')
     # parser.add_argument('--batch-size', type=int, default=32, help='size of each image batch')
-    parser.add_argument('--img-src', type=int, default='', help='source image')
+    parser.add_argument('--img-src', default='', help='path to source image')
     parser.add_argument('--img-size', type=int, default=640, help='inference size (pixels)')
     parser.add_argument('--conf-thres', type=float, default=0.001, help='object confidence threshold')
     parser.add_argument('--iou-thres', type=float, default=0.65, help='IOU threshold for NMS')
@@ -74,7 +75,7 @@ if __name__ == "__main__":
     # options.data = check_file(options.data)  # check file
     print(options)
 
-    src_image = options.src_image
+    src_image = options.img_src
     cv_image = cv2.imread(src_image)
     cv_image = cv2.resize(cv_image, (options.img_size, options.img_size), cv2.INTER_AREA)
-    test(options, cv_image)
+    print(test(options, cv_image))

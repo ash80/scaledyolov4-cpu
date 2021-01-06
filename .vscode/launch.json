@@ -10,7 +10,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args" : ["--cfg", "models/yolov4-csp.cfg", "--weights", "weights/yolov4-csp.weights"]
+            "args" : ["--cfg", "models/yolov4-csp.cfg", "--weights", "weights/yolov4-csp.weights", 
+            "--img-src", "path/to/test_img.jpg"]
         }
     ]
 }

@@ -13,7 +13,7 @@ Download [`yolov4-csp.weights`](https://drive.google.com/file/d/1NQwz47cW0NUgy7L
 In a terminal run:
 
 ```bash
-python inference.py --cfg models/yolov4-csp.cfg --weights weights/yolov4-csp.weights --img-size <path/to/an/image>
+python inference.py --cfg models/yolov4-csp.cfg --weights weights/yolov4-csp.weights --img-src <path/to/an/image>
 ```
 
 ## Reference
